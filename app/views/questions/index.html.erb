@@ -1,0 +1,25 @@
+<p style="font-family:cookie regular">Hello <%= current_user.email.split("@")[0] rescue nil %></p>
+
+<h1>Yahoo Questions</h1>
+
+<%= link_to 'Create a New Question', new_question_path %>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>User</th>
+    <th>Text</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.title %>&nbsp&nbsp&nbsp</td>
+      <td><%= question.user.email.split("@")[0] %>&nbsp&nbsp&nbsp</td>
+      <td><%= question.text %>&nbsp&nbsp&nbsp</td><p>
+      <td><%= link_to 'Answers', question_path(question) %>&nbsp&nbsp&nbsp</td>
+      <td><%= link_to 'Edit', edit_question_path(question) %>&nbsp&nbsp&nbsp</td>
+      <td><%= link_to 'Destroy', question_path(question), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

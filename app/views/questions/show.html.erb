@@ -1,0 +1,25 @@
+<p>
+  <!-- Title:
+  <strong><%= @question.title %></strong> -->
+<!-- </p> -->
+
+<!-- <p> -->
+  User:
+  <strong><%= @question.user.email.split("@")[0] %>
+  </strong>
+<!-- </p> -->
+ <br>
+<!-- <p> -->
+  
+  <h1 style="font-size:125%">
+  	Q: <strong><%= @question.text %></h1></strong>
+</p>
+
+<h2>------------------------------------------</h2>
+<%= render @question.answers %>
+
+<!-- <h2 style="font-size:100%">Add an Answer:</h2> -->
+<%= render 'answers/form' %>
+
+<%= link_to 'Back', questions_path %>
+
